@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:c="http://java.sun.com/jsf/core"
+>
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./css/main.css"/>
+<title>Bem vindo ao UpToShare</title>
+</h:head>
+<h:body>
+<div id = "main">
+	<div id = "logo"><img src = "./images/Logo.png" alt="logo" align="middle" id="imglogo"/></div>
+	<div id = "login">
+		<h:form id="formDados">
+			<h:outputText value="Login"/><br/><br/>
+			
+			<h:outputLabel value="Login:"/>
+			<h:inputText value="#{loginController.user.user}" 
+				required="true" requiredMessage="Digite o login!"
+			/><br/>
+
+			<h:outputLabel value="Senha:"/>
+			<h:inputSecret value="#{loginController.user.senha}" 
+				required="true" requiredMessage="Digite a senha!"
+			/><br/>
+			
+			<h:commandButton value="Entrar" action="#{loginController.login}"/>
+			<h:messages/>
+		</h:form>
+	</div>
+	
+	<div id = "createAccount">
+	
+	<br/><br/><br/><br/>
+		<h:form id="formDadosValue">
+			<h:outputText value="Crie Sua conta"/><br/><br/>
+
+			<h:outputLabel value="Nome:"/>
+			<h:inputText value="#{loginController.user.nome}" 
+				required="true" requiredMessage="Digite o nome!"
+			/><br/>
+			
+			<h:outputLabel value="Login:"/>
+			<h:inputText value="#{loginController.user.user}" 
+				required="true" requiredMessage="Digite o login!"
+			/><br/>
+
+			<h:outputLabel value="Senha:"/>
+			<h:inputSecret value="#{loginController.user.senha}" 
+				required="true" requiredMessage="Digite a senha!"
+			/><br/>
+			
+			<h:outputLabel value="E-mail:"/>
+			<h:inputText value="#{loginController.user.email}" 
+				required="true" requiredMessage="Digite seu e-mail!"
+			/><br/>
+			
+			<h:commandButton value="Cadastrar" action="#{loginController.cadastrar}"/>
+			<h:messages/>
+		</h:form>
+	</div>
+</div>
+</h:body>
+</html>

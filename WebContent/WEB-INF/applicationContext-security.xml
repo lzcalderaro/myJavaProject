@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:b="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+    <http>
+        <intercept-url pattern="/restrito_admin/**" access="ROLE_ADMINISTRADOR"/>
+        <intercept-url pattern="/restrito_user/**" access="ROLE_ADMINISTRADOR,ROLE_USUARIO"/>
+
+        <form-login login-page="/public/login.jsf"
+            always-use-default-target="true"
+            default-target-url="/restrito_user/upload.jsf" 
+            authentication-failure-url="/public/login.jsf?login_error=1"/>
+        <logout/>
+        <remember-me />
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+           <jdbc-user-service data-source-ref="lojaDataSource" 
+               authorities-by-username-query="SELECT u.user, p.permissao FROM tbusuario u, tbpermissao p WHERE u.id = p.iduser AND u.user = ?"              
+               users-by-username-query="SELECT User, Senha, Ativo FROM tbusuario WHERE user = ?"
+               />
+        </authentication-provider>
+    </authentication-manager>
+
+</b:beans>

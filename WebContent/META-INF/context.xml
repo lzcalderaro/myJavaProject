@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true">
+    <Resource name = "jdbc/ProjectManhattan"
+        auth="Container"
+        type="javax.sql.DataSource"
+        maxActive="100"
+        maxIdle="30"
+        maxWait="10000"
+        username="root"
+        password="mcsjava"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/projectmanhattan?autoReconnect=true"
+        />
+</Context>

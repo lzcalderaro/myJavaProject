@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://primefaces.org/ui"
+>
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./css/main.css"/>
+<title>Bem vindo ao UpToShare</title>
+</h:head>
+<h:body>
+<div id = "main">
+	<div id = "logo"><img src = "../images/Logo.png" alt="logo" align="middle" id="imglogo"/></div>
+	
+	<center>
+		 <h:form id = "formDados" enctype="multipart/form-data">
+		 
+		 <h:outputText value = "Olá #{uploadController.user.nome}" />
+		 
+		 	<p:fileUpload fileUploadListener="#{uploadController.doUpload}"
+                          showButtons="true" label="Upload..." auto="true"/>
+        </h:form>
+        
+        
+        <br/><br/><br/>
+        
+        <h:form id = "formResult">
+        
+        <h:outputLabel value="Email Destinatario:"/>
+			<h:inputText value="#{uploadController.emailDest}" 
+				required="true" requiredMessage="Digite o Email do Destinatario!"
+			/><br/>
+            
+            
+        <h:commandButton value="Enviar" action="#{uploadController.senderEmail}"/>
+        
+		 <p:messages  severity="info" escape="false" showDetail="true"
+                 autoUpdate="true" closable="true"/>
+        </h:form>
+	</center>
+</div>
+</h:body>
+</html>

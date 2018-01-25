@@ -1,0 +1,42 @@
+/*
+ * @Author: Luiz Calderaro
+  */
+ 
+html { 
+  background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} 
+
+body 
+{
+	 max-width: 900px;
+     _width: 900px;
+     padding: 30px 20px 50px;
+     margin: 0 auto;
+}
+
+.main
+{	
+	position:absolute;
+	width: 900px;
+	margin-left:-450px;
+	left:50%;
+	z-index:-1;
+	margin-top: 0;
+}
+
+.login
+{
+	margin-left: 50px;
+	float: left;
+}
+
+#imglogo
+{
+	position: absolute;
+	margin-left: 40%;
+	top: -10px;
+}
